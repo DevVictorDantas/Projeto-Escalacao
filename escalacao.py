@@ -2,6 +2,7 @@
 #convocados = [None] * 11
 #convocados[10] = {"nome": "Neymar Jr.", "camisa": 10, "posicao": "Atacante"}
 #convocados.insert(10,{"nome": "Neymar Jr.", "camisa": 10, "posicao": "Atacante"})
+#tem que ter o endrick na escalação.
 convocados = {
     1: {"nome": "Alisson", "camisa": 1, "posicao": "Goleiro"},
     2: {"nome": "Éderson", "camisa": 2, "posicao": "Meio-campista"},
