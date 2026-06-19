@@ -3,6 +3,12 @@
 #convocados[10] = {"nome": "Neymar Jr.", "camisa": 10, "posicao": "Atacante"}
 #convocados.insert(10,{"nome": "Neymar Jr.", "camisa": 10, "posicao": "Atacante"})
 #tem que ter o endrick na escalação.
+
+def imprime_convocados_por_posicao(posicao):
+  for numeracao, convocado in convocados.items():
+    if convocado["posicao"] == posicao:
+      print(convocado)
+
 convocados = {
     1: {"nome": "Alisson", "camisa": 1, "posicao": "Goleiro"},
     2: {"nome": "Éderson", "camisa": 2, "posicao": "Meio-campista"},
@@ -31,18 +37,58 @@ convocados = {
     25: {"nome": "Igor Thiago", "camisa": 25, "posicao": "Atacante"},
     26: {"nome": "Rayan", "camisa": 26, "posicao": "Atacante"},
 }
-escalacao = []
-print('Olá! Esse é um programa para montar a escalação do Brasil para o jogo contra o Haiti.')
-print('Para selecionar um jogador, basta digitar o número da camisa. Não é possível convocar um jogador de uma posição para uma diferente da já existente na convocação. Ex: Ryan Atacante como defensor, não será possível.')
-#qtd_meio_campista = input('Quantos jogadores meio-campista serão escalados ? ')
-#qtd_atacantes = input('Quantos jogadores atacantes serão escalados ? ')
-#qtd_defensores = input('Quantos jogadores defensores serão escalados ? ')
 
-while len(escalacao) < 1:
-  camisa = int(input('Número da camisa do jogador: ' ))
+escalacao = {}
+print('Olá! Esse é um programa para montar a escalação do Brasil para o jogo contra o Haiti. \n')
+print('Para selecionar um jogador, basta digitar o número da camisa. Não é possível convocar um jogador de uma posição para uma diferente da já existente na convocação. Ex: Ryan Atacante como defensor, não será possível. \n')
+
+qtd_meio_campista = int(input('Quantos jogadores meio-campista serão escalados ? \n'))
+# qtd_atacantes = int(input('Quantos jogadores atacantes serão escalados ? '))
+# qtd_defensores = int(input('Quantos jogadores defensores serão escalados ? '))
+# qtd_goleiros = 1
+qtd_jogadores = qtd_meio_campista 
+# + qtd_atacantes + qtd_defensores + qtd_goleiros
+
+meio_campistas = []
+atacantes = []
+defensores = []
+goleiros = []
+
+if qtd_jogadores > 4:  
+  print('A formação só pode ter no máximo 11 jogadores')
+elif qtd_jogadores < 4:
+  print('A formação precisa ter 11 jogadores.')
+else:
+  print('A formação está completa')
+  for meio_campo in range(qtd_meio_campista):
+    imprime_convocados_por_posicao("Meio-campista")
+    numero_camisa = int(input("Selecione um meio-campista pelo número da camisa: "))
+    meio_campistas.append(convocados[numero_camisa])
   
-  escalacao.append(convocados[camisa])
+  escalacao["meio_campistas"] = meio_campistas
 
-for jogador in escalacao:
-  print(f"Nome: {jogador['nome']} | Camisa: {jogador['camisa']} | Posicao: {jogador['posicao']}")
+  # for atacante in range(qtd_atacantes):
+  #   imprime_convocados_por_posicao("Atacante")
+  #   numero_camisa = int(input("Selecione um atacante pelo número da camisa: "))
+  #   if convocados["posicao"] != "Atacante":
+  #     print("Jogador não é um Atacante")
+  #   else:
+  #     atacantes.append(convocados[numero_camisa])
+    
+  # # escalacao["atacantes"] = atacantes
+
+  # # for defensor in range(qtd_defensores):
+  # #     imprime_convocados_por_posicao("Defensor")
+  # #     numero_camisa = int(input("Selecione um defensor pelo número da camisa: "))
+  # #     if
+  # #     defensores.append(convocados[numero_camisa])
+      
+  # # escalacao["defensores"] = defensores
+  
+  # # for goleiro in range(qtd_goleiros):
+  # #       imprime_convocados_por_posicao("Goleiro")
+  # #       numero_camisa = int(input("Selecione um goleiro pelo número da camisa: "))
+  # #       goleiros.append(convocados[numero_camisa])
+        
+  # # escalacao["goleiros"] = goleiros
   print(escalacao)
